@@ -41,4 +41,5 @@ public class TodoRestController {
     List<Todo> findTodosByUsername(@PathVariable("username") String username) {
         return todoRepository.findByUsername(username);
     }
+
 }
