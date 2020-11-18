@@ -15,6 +15,6 @@ public class TodoUserDetailsService implements UserDetailsService {
 
         // now, it returns this user all the time!
 
-        return new User("dj", "pwd", new ArrayList<>());
+        return new User("dongjin", "password", new ArrayList<>());
     }
 }

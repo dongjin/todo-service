@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Base64;
 
-//@CrossOrigin(origins = "**")
+
 @CrossOrigin(origins = "http://localhost:4200")
 //@CrossOrigin(maxAge = 3600)
 

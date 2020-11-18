@@ -53,12 +53,14 @@
 			<artifactId>spring-boot-starter-security</artifactId>
 			<version>2.3.3.RELEASE</version>
 		</dependency>
+
         <!-- to create and validate jwt -->
 		<dependency>
 			<groupId>io.jsonwebtoken</groupId>
 			<artifactId>jjwt</artifactId>
 			<version>0.9.1</version>
 		</dependency>
+
 		<!-- need to add for java 9+ -->
 		<dependency>
 			<groupId>javax.xml.bind</groupId>
