@@ -28,12 +28,8 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
     @Autowired
     private TodoUserDetailsService todoUserDetailsService;
 
-//    @Autowired
-//    private JwtRequestFilter jwtRequestFilter;
-
-
-    // Without the following httpBasic returns Bad Credentials
-    // (Q) how to actually verify the user with real login
+    @Autowired
+    private JwtRequestFilter jwtRequestFilter;
 
 
     /*
@@ -72,10 +68,11 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-        //------------------------------------------------
+        //-----------------------------------------------------------------------------
         // Basic Authentication
-        //------------------------------------------------
-
+        // - requires Authorization header with Basic base64encoded username:password
+        //-----------------------------------------------------------------------------
+/*
         http.csrf().disable()
                 .authorizeRequests()
                 .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
@@ -83,22 +80,18 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
                 .anyRequest().authenticated()
                 .and()
                 .httpBasic()
-
                 .authenticationEntryPoint(authenticationEntryPoint);
 
         http.addFilterAfter(new CustomFilter(), BasicAuthenticationFilter.class);
-
+*/
 
         //------------------------------------------------
         // JWT based Authentication
         //------------------------------------------------
 
-/*
         http.csrf().disable()
                 .authorizeRequests().antMatchers("/authenticate").permitAll()
-
                 .anyRequest().authenticated()
-//                .anyRequest().authenticated()
 
                 .and()
                 // (a) set stateless session management
@@ -107,10 +100,6 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
 
         // (b) add jwtRequestFilter
         http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
-*/
-
-
-
 
     }
 

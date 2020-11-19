@@ -1,4 +1,4 @@
-package com.dongjin.son.todo.todoservice.controllers;
+package com.dongjin.son.todo.todoservice.security.rest;
 
 import com.dongjin.son.todo.todoservice.models.AuthenticationBean;
 import org.springframework.web.bind.annotation.CrossOrigin;

@@ -21,7 +21,7 @@ import java.io.IOException;
  * Check received request header for Authorization && validate and save in the SecurityContextHolder
  */
 
-//@Component
+@Component
 public class JwtRequestFilter extends OncePerRequestFilter {
 
     @Autowired
