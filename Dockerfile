@@ -4,6 +4,7 @@ FROM openjdk:8-jdk-alpine
 
 EXPOSE 8080
 COPY ./target/todo-service-0.0.1-SNAPSHOT.jar todo-service-0.0.1-SNAPSHOT.jar
+#COPY ./target/*.jar app.jar
 
 ENTRYPOINT ["sh","-c","java -jar /todo-service-0.0.1-SNAPSHOT.jar"]
-
+#ENTRYPOINT ["sh","-c","java -jar /app.jar"]
