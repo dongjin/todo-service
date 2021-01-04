@@ -51,7 +51,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
         // IF username is not null  && SecurityContextHolder does not have Authentication yet
 
         // (Q) why only validate when Authentication does not existing in SecurityContextHolder ?
-        //     ==> I.e., how can we sure requeted user is the same ? (as the one who saved a token in securityContextHolder)
+        //     ==> I.e., how can we sure requested user is the same ? (as the one who saved a token in securityContextHolder)
 
         // if valid, create a UsernamepasswordAuthenticationToken and save it (Authentication) in th SecurityContext
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {

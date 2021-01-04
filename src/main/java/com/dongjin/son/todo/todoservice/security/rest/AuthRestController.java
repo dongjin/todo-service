@@ -15,7 +15,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+// With the following, request from restclient / api tester does not work (returns 403)
+// Without the following, the request from the angualr web ui does not work (returns 403)
 @CrossOrigin(origins = "http://localhost:4200")
+
+//@CrossOrigin
 @RestController
 public class AuthRestController {
 
@@ -41,7 +45,7 @@ public class AuthRestController {
 
         final UserDetails userDetails = userDetailsService.loadUserByUsername(authRequest.getUsername());
         System.out.println("userDetails = " + userDetails);
-        
+
         final String jwt = jwtUtil.generateToken(userDetails);
 
         System.out.println("jwt = " + jwt);
