@@ -1,6 +1,8 @@
 package com.dongjin.son.todo.todoservice.services;
 
 import com.dongjin.son.todo.todoservice.models.Todo;
+import com.dongjin.son.todo.todoservice.repositories.TodoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -13,6 +15,9 @@ public class TodoHardcodedService {
     private static List<Todo> todoList = new ArrayList<>();
     private static int idCounter = 0;
 
+    @Autowired
+    private TodoRepository todoRepository;
+
     static {
         todoList.add(new Todo(++idCounter, "dongjin", "study Angular", "study Angular", new Date(), false));
         todoList.add(new Todo(++idCounter, "dongjin", "study microservice", "study microservice", new Date(), false));
@@ -21,7 +26,10 @@ public class TodoHardcodedService {
     }
 
     public List<Todo> findAll() {
-        return todoList;
+//        return todoList;
+
+        return todoRepository.findAll();
+
     }
 
     public Todo deleteById(long id) {

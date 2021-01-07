@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin
 @RestController
 public class TodoRestController {
 
@@ -19,9 +20,10 @@ public class TodoRestController {
     @Autowired
     private TodoRepository todoRepository;
 
-//    http://localhost:8080/users/dongjin/todos
+    //    http://localhost:8080/users/dongjin/todos
     @GetMapping("/users/{username}/todos")
     public List<Todo> getAllTodos(@PathVariable("username") String username) {
+
         return todoService.findAll();
     }
 
@@ -34,10 +36,17 @@ public class TodoRestController {
         return ResponseEntity.notFound().build();
     }
 
-//    http://localhost:8080/users/dongjin
+    //    http://localhost:8080/users/dongjin
     @GetMapping("/users/{username}")
     List<Todo> findTodosByUsername(@PathVariable("username") String username) {
         return todoRepository.findByUsername(username);
+    }
+
+    @PostMapping("/users/{username}/todos")
+    public Todo createTodo(@PathVariable("username") String username, @RequestBody Todo todo) {
+        Todo createdTodo = todoRepository.save(todo);
+        System.out.println("createdTodo = " + createdTodo);
+        return createdTodo;
     }
 
 }
