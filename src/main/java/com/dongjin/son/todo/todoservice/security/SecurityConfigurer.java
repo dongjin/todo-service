@@ -92,6 +92,9 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
         http.csrf().disable()
                 .authorizeRequests()
                 .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+
+                // permit access h2-console (http://localhost:8080/h2-console)
+                .antMatchers("/h2-console/**").permitAll()
                 .antMatchers("/authenticate").permitAll()
                 .anyRequest().authenticated()
 
