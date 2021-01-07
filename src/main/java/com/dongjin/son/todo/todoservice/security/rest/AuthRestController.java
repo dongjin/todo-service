@@ -17,9 +17,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 // With the following, request from restclient / api tester does not work (returns 403)
 // Without the following, the request from the angualr web ui does not work (returns 403)
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
 
-//@CrossOrigin
+@CrossOrigin
 @RestController
 public class AuthRestController {
 
