@@ -11,6 +11,10 @@
 	<groupId>com.dongjin.son.todo</groupId>
 	<artifactId>todo-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+
+	<!-- (1) To Build as a WAR -->
+	<packaging>war</packaging>
+
 	<name>todo-service-api</name>
 	<description>Demo project for Spring Boot</description>
 
@@ -59,6 +63,19 @@
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+
+		<!-- (2) To Build as a WAR -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+
+		<!--
+		 Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception;
+		 nested exception is java.lang.IllegalStateException: Cannot load driver class: org.h2.driver
+		-->
 
 	</dependencies>
 
