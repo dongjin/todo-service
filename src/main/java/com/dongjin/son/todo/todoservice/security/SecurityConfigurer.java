@@ -93,6 +93,9 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
 
+                // just for a quick health check
+                .antMatchers("/hello").permitAll()
+
                 // permit access h2-console (http://localhost:8080/h2-console)
                 .antMatchers("/h2-console/**").permitAll()
                 .antMatchers("/authenticate").permitAll()

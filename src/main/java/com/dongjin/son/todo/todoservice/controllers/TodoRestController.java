@@ -19,7 +19,13 @@ public class TodoRestController {
     @Autowired
     private TodoRepository todoRepository;
 
-//    http://localhost:8080/users/dongjin/todos
+
+    @GetMapping("/hello")
+    public String getHello() {
+        return "Hello!";
+    }
+
+    //    http://localhost:8080/users/dongjin/todos
     @GetMapping("/users/{username}/todos")
     public List<Todo> getAllTodos(@PathVariable("username") String username) {
         return todoService.findAll();
@@ -34,7 +40,7 @@ public class TodoRestController {
         return ResponseEntity.notFound().build();
     }
 
-//    http://localhost:8080/users/dongjin
+    //    http://localhost:8080/users/dongjin
     @GetMapping("/users/{username}")
     List<Todo> findTodosByUsername(@PathVariable("username") String username) {
         return todoRepository.findByUsername(username);
