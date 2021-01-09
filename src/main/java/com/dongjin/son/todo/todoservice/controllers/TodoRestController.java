@@ -17,6 +17,11 @@ public class TodoRestController {
     @Autowired
     private TodoHardcodedService todoService;
 
+    @GetMapping("/hello")
+    public String getHello() {
+        return "Hello!";
+    }
+
     @Autowired
     private TodoRepository todoRepository;
 
